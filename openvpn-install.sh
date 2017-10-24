@@ -38,8 +38,10 @@ elif [[ -e /etc/centos-release || -e /etc/redhat-release ]]; then
 	GROUPNAME=nobody
 	RCLOCAL='/etc/rc.d/rc.local'
 else
-	echo "Looks like you aren't running this installer on Debian, Ubuntu or CentOS"
-	exit 5
+	echo "Looks like you aren't running this installer on Debian, Ubuntu or CentOS. Assuming Amazon Linux"
+	OS=centos
+	GROUPNAME=nobody
+	RCLOCAL='/etc/rc.d/rc.local'
 fi
 
 newclient () {
